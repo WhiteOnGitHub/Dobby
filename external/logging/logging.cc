@@ -102,13 +102,11 @@ void Logger::logv(LogLevel level, const char *_fmt, va_list ap) {
 #endif
   }
 
-  if (1 || !enable_syslog_ && log_file_ == nullptr) {
 #if defined(__ANDROID__)
-    __android_log_vprint(ANDROID_LOG_INFO, NULL, fmt_buffer, ap);
+  __android_log_vprint(ANDROID_LOG_INFO, "Dobby", fmt_buffer, ap);
 #else
-    vprintf(fmt_buffer, ap);
+  vprintf(fmt_buffer, ap);
 #endif
-  }
 }
 
 #pragma clang diagnostic warning "-Wformat"

@@ -14,9 +14,6 @@ public:
 
   // @Return: if false will continue to iter next plugin
   virtual bool GenerateTrampolineBuffer(InterceptRouting *routing, addr_t src, addr_t dst) = 0;
-
-private:
-  char name_[256];
 };
 
 class RoutingPluginManager {

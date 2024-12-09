@@ -1,13 +1,13 @@
 #ifndef ARCH_ARM64_REGISTERS
 #define ARCH_ARM64_REGISTERS
 
-#include "core/arch/arm64/constants-arm64.h"
-#include "core/arch/Cpu.h"
+#include "core/arch/CpuRegister.h"
+#include <cstdint>
 
 namespace zz {
 namespace arm64 {
 
-class CPURegister : RegisterBase {
+class CPURegister : public RegisterBase {
 public:
   enum RegisterType {
     kRegister_32,
@@ -31,7 +31,7 @@ public:
     kInvalid
   };
 
-  constexpr CPURegister(int code, int size, RegisterType type) : RegisterBase(code), reg_size_(size), reg_type_(type) {
+  constexpr CPURegister(int code, int size, RegisterType type) : RegisterBase(code), reg_type_(type), reg_size_(size) {
   }
 
   static constexpr CPURegister Create(int code, int size, RegisterType type) {
@@ -57,10 +57,6 @@ public:
   }
 
   // =====
-
-  bool Is(const CPURegister &reg) const {
-    return (reg.reg_code_ == this->reg_code_);
-  }
 
   bool Is64Bits() const {
     return reg_size_ == 64;

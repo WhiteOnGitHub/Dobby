@@ -232,7 +232,7 @@ public:
   }
   ~Assembler() {
     if (buffer_)
-      delete buffer_;
+      buffer_->CodeBuffer::~CodeBuffer();
     buffer_ = NULL;
   }
 

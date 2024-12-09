@@ -31,10 +31,6 @@ public:
     return Register(code);
   }
 
-  bool Is(const Register &reg) const {
-    return (reg.reg_code_ == this->reg_code_);
-  }
-
   bool IsValid() const {
     return (reg_code_ != 0);
   }

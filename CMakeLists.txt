@@ -37,11 +37,6 @@ option(DOBBY_BUILD_KERNEL_MODE "Build xnu kernel mode" OFF)
 
 option(Private.Obfuscation "Enable llvm obfuscation" OFF)
 
-if ((NOT DEFINED CMAKE_BUILD_TYPE) OR (CMAKE_BUILD_TYPE STREQUAL "Debug"))
-  set(DOBBY_DEBUG ON)
-endif ()
-
-
 set(compile_definitions "")
 
 # for arm64, allow access q8 - q31
